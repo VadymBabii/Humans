@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import UsersList from "../../components/UsersList/UsersList";
-import UserDetails from "../../components/UsetDetails/UserDetails";
+import UserDetails from "../../components/UserDetails/UserDetails";
 import { selectUsers } from "../../redux/reducers/user/selectors";
 import { UserType } from "../../redux/reducers/user/user";
 import { StyledNotes } from "./Notes.styles";
@@ -21,6 +21,8 @@ const Notes = (): JSX.Element => {
       isNew: true,
     });
   };
+
+  console.log(users);
 
   const handleThreeDotsClick = () => {};
   return (

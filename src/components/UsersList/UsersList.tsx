@@ -19,7 +19,6 @@ const UsersList: React.FC<UsersListProps> = ({
 }) => {
   const users = useSelector(selectUsers);
 
-  console.log(users);
   return (
     <StyledUsersList>
       <SearchForm />

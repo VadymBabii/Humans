@@ -6,6 +6,7 @@ export type UserType = {
   name: string;
   image: ReactNode;
   isNew?: boolean;
+  isDefault?: boolean;
 };
 
 type UserSliceInitialState = {
@@ -26,9 +27,17 @@ const userSlice = createSlice({
     saveUser(state, action: { payload: UserType }) {
       state.users = [action.payload, ...state.users];
     },
+    deleteUser(state, action: { payload: string }) {
+      state.users = state.users.filter((user) => user.id !== action.payload);
+    },
+    editUser(state, action: { payload: UserType }) {
+      state.users = state.users.map((user) =>
+        user.id === action.payload.id ? action.payload : user
+      );
+    },
   },
 });
 
-export const { saveUser } = userSlice.actions;
+export const { saveUser, deleteUser, editUser } = userSlice.actions;
 
 export default userSlice.reducer;
