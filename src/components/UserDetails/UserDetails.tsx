@@ -42,10 +42,8 @@ const UserDetails: React.FC<UserDetailsProps> = ({
   const handleSubmit = () => {
     const newUser = { ...user, isNew: false, name: userName };
     if (isEditing) {
-      console.log("1");
       dispatch(editUser(newUser));
     } else {
-      console.log("2");
       dispatch(saveUser(newUser));
     }
     setActiveUser(newUser);
