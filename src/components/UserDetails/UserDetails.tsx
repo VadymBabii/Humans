@@ -42,23 +42,30 @@ const UserDetails: React.FC<UserDetailsProps> = ({
   const handleSubmit = () => {
     const newUser = { ...user, isNew: false, name: userName };
     if (isEditing) {
+      console.log("1");
       dispatch(editUser(newUser));
     } else {
+      console.log("2");
       dispatch(saveUser(newUser));
     }
     setActiveUser(newUser);
+    setIsEditing(false);
   };
+
   const handleDeleteClick = () => {
     dispatch(deleteUser(user.id));
     setIsMenuOpen(false);
     setActiveUser({ name: "New Human", id: "", image: "", isDefault: true });
   };
+
   const mouseOver = () => {
     setIsEditVisible(true);
   };
+
   const mouseLeave = () => {
     setIsEditVisible(false);
   };
+
   const setIsEditable = () => {
     if (!user.isDefault) {
       setIsEditing(true);
